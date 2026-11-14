@@ -11,6 +11,7 @@ qa_agent = Agent(
     role="Question Answer Agent",
     llm=llm,
     tools=[rag_query_tool],
+    max_iter=2,
     goal="Provide accurate, well-structured answers to user queries by retrieving relevant context from"
          " connected documents, ensuring responses are grounded in evidence rather than speculation."
          " The agent prioritizes clarity, factual accuracy, and relevance, presenting outputs in a user-friendly"

@@ -14,16 +14,19 @@ qa_task = Task(
     agent=qa_agent,
     name="Question Answering Task",
     description="""
-    Answer the user query "{user_query}" using a Retrieval-Augmented Generation (RAG) pipeline.
-    chat_history: "{chat_history}"
-
+    You are provided with the following conversation history:
+    ---
+    {chat_history}
+    ---
+    
+    The user's latest query is: "{user_query}"
+    
     Instructions:
-    - Retrieve relevant context from the document store
-    - Prioritize evidence that directly addresses the query
-    - Synthesize a clear, accurate answer grounded in the retrieved sources or chat history
-    - If the query cannot be answered from the knowledge source or chat history, do not generate your own response.
-      Instead, state clearly that the knowledge source does not contain the required information.
-    - Provide transparency by including references, tool usage, and reasoning steps
+    1. First, check the conversation history. If the query is vague, use the history to understand exactly what the user is referring to.
+    2. Use the rag_query_tool to search the document store for relevant context based on the resolved meaning of the query.
+    3. Prioritize evidence that directly addresses the query.
+    4. Synthesize a clear, accurate answer grounded in the retrieved sources.
+    5. If the query cannot be answered from the knowledge source, state clearly that the information is not available.
     """,
     expected_output="""
     A structured JSON object with the following fields:
