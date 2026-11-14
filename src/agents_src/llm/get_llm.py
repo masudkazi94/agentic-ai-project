@@ -9,6 +9,8 @@ def get_llm_for_agent(agent_name):  # 2 usages  new *
     llm = LLM(
         model=model,
         temperature=temperature,
-        stream=False
+        stream=False,
+        max_retries=3,      
+        timeout=60 
     )
     return llm
