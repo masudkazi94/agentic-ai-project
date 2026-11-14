@@ -27,7 +27,7 @@ ENV GROQ_API_KEY="your_groq_api_key"
 ENV DOCUMENTS_DIR="/app/docs_dir"
 ENV VECTOR_STORE_DIR="/app/doc_vector_store"
 ENV COLLECTION_NAME="document_collection"
-ENV MODEL_NAME="groq/llama-3.1-8b-instant"
+ENV MODEL_NAME="groq/openai/gpt-oss-20b"
 ENV MODEL_TEMPERATURE=0.0
 ENV CHAT_ENDPOINT_URL="http://localhost:8000/chat/answer"
 
